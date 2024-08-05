@@ -1,0 +1,10 @@
+---
+- name: Deploying new webapp using last image
+  hosts: localhost
+  tasks:
+  - name: forcefully removing running container
+    shell:
+      cmd: docker container rm --force webapp
+ - name: Running a new container with latest image
+   shell:
+     cmd: docker container run -d --name webapp -p 80:80 pratikshaa01/pratiksha-latest-project
